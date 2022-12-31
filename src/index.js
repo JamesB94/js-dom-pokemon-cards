@@ -3,10 +3,11 @@
 
 
 const myUnordered  = document.querySelector('ul')
-function init (){
+
+const init = () => {
   for(let i = 0; i < data.length; i++) {
     const pokemon = data[i]
-    console.log('pokemon does ', pokemon,i)
+    console.log('Test pokemon is ', pokemon)
     
     const card = createCard()
     addTitle(card, pokemon)
@@ -21,6 +22,7 @@ function init (){
 // create the Li 
 function createCard() {
   const pokemonCard = document.createElement('li')
+  pokemonCard.setAttribute('style', 'list-style-type: none;')
   pokemonCard.classList.add('card')
   return pokemonCard
 }
@@ -31,7 +33,6 @@ function addTitle(card, pokemon) {
  pokemonName.classList.add('card--title')
  pokemonName.textContent = pokemon.name
  card.append(pokemonName)
-//  return pokemonName
 }
 
 // add image to card
@@ -58,6 +59,7 @@ function addPokemonStats(cardInfoList, pokemon) {
   for(let i = 0; i < pokemon.stats.length; i++) {
     const stat = pokemon.stats[i]
     const pokemonStatLi = document.createElement('li')
+    pokemonStatLi.setAttribute('style', 'list-style-type: none;')
     pokemonStatLi.innerText = `${stat.stat.name.toUpperCase()}: ${String(stat.base_stat)}`
     cardInfoList.append(pokemonStatLi)
   }
